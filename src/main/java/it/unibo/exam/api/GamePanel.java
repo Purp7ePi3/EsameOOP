@@ -5,83 +5,75 @@ import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import javax.swing.JPanel;
+
+import it.unibo.exam.bin.PuzzleRoom1;
+import it.unibo.exam.bin.PuzzleRoom2;
+import it.unibo.exam.bin.PuzzleRoom3;
+import it.unibo.exam.bin.PuzzleRoom4;
+import it.unibo.exam.bin.PuzzleRoom5;
+import it.unibo.exam.inteface.PuzzleRoom;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class GamePanel extends JPanel implements Runnable {
-    static final int ORIGINAL_WIDTH = 800;
-    static final int ORIGINAL_HEIGHT = 600;
+    public static final int ORIGINAL_WIDTH = 800;
+    public static final int ORIGINAL_HEIGHT = 600;
     static final int ORIGINAL_TILE_SIZE = 16;
     static final int SCALE = 3;
-    static final int TILE_SIZE = ORIGINAL_TILE_SIZE * SCALE;
+    public static final int TILE_SIZE = ORIGINAL_TILE_SIZE * SCALE;
 
-    KeyHandler keyH;
+    private KeyHandler keyH;
 
     private Thread gameThread;
-    final int speed = 5;
-    int playerX;
-    int playerY;
+    final int speed = 20;
+    public int playerX;
+    public int playerY;
 
     private int fps;
     private long lastFpsTime;
     private int frameCount;
 
-    private ArrayList<Door> doors;
-
-    // Memorizza la posizione del giocatore come frazione
-    private double playerXPercentage;
-    private double playerYPercentage;
+    private List<Room> rooms; // Lista delle stanze
+    private int currentRoomIndex; // Indice della stanza corrente
+    private String lastInteraction = "";
 
     public GamePanel(KeyHandler keyHandler) {
         this.keyH = keyHandler;
-        this.setPreferredSize(new Dimension(ORIGINAL_WIDTH, ORIGINAL_HEIGHT)); // Set initial window size
+        this.setPreferredSize(new Dimension(ORIGINAL_WIDTH, ORIGINAL_HEIGHT));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
 
-        // Inizializza la posizione del giocatore come frazione
-        playerX = ORIGINAL_WIDTH / 2 - TILE_SIZE / 2; // Posizione iniziale
-        playerY = ORIGINAL_HEIGHT / 2 - TILE_SIZE / 2; // Posizione iniziale
+        this.rooms = new ArrayList<>(); // Inizializza la lista delle stanze
+        this.currentRoomIndex = 0; // Indice iniziale della stanza
 
-        // Calcola la posizione come frazione della finestra originale
-        playerXPercentage = (double) playerX / ORIGINAL_WIDTH;
-        playerYPercentage = (double) playerY / ORIGINAL_HEIGHT;
+        // Posizione iniziale del giocatore
+        playerX = ORIGINAL_WIDTH / 2 - TILE_SIZE / 2;
+        playerY = ORIGINAL_HEIGHT / 2 - TILE_SIZE / 2;
 
-        // Inizializza le porte
-        doors = new ArrayList<>();
-        updateDoors();
-
-        // Gestisci il ridimensionamento della finestra
-        addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                updatePlayerPosition(); // Aggiorna la posizione del giocatore al ridimensionamento
-                updateDoors();           // Aggiorna la posizione delle porte
-            }
-        });
+        createRooms(); // Crea le stanze
     }
 
-    private void updatePlayerPosition() {
-        int panelWidth = getWidth();
-        int panelHeight = getHeight();
-
-        // Ricalcola la posizione del giocatore in base alla frazione della finestra corrente
-        playerX = (int) (playerXPercentage * panelWidth);
-        playerY = (int) (playerYPercentage * panelHeight);
-    }
-
-    private void updateDoors() {
-        doors.clear();
-        int panelWidth = getWidth();
-        int panelHeight = getHeight();
-        doors.add(new Door(0, panelHeight / 4 - TILE_SIZE / 2, "Top-left Door"));
-        doors.add(new Door(0, 3 * panelHeight / 4 - TILE_SIZE / 2, "Bottom-left Door"));
-        doors.add(new Door(panelWidth - TILE_SIZE, panelHeight / 4 - TILE_SIZE / 2, "Top-right Door"));
-        doors.add(new Door(panelWidth - TILE_SIZE, 3 * panelHeight / 4 - TILE_SIZE / 2, "Bottom-right Door"));
-        doors.add(new Door(panelWidth / 2 - TILE_SIZE / 2, panelHeight - TILE_SIZE, "Bottom-center Door"));
+    private void createRooms() {
+        // Room 1 with 5 doors in predefined positions
+        List<Door> room1Doors = List.of(
+            new Door(0, ORIGINAL_HEIGHT / 4 - TILE_SIZE / 2, "Cucina(dove sta la donna)", 1, false),
+            new Door(0, 3 * ORIGINAL_HEIGHT / 4 - TILE_SIZE / 2, "Gabietto nella villa(qui ci sono)", 2, false),
+            new Door(ORIGINAL_WIDTH - TILE_SIZE, ORIGINAL_HEIGHT / 4 - TILE_SIZE / 2, "Stanza del sesso", 3, false),
+            new Door(ORIGINAL_WIDTH - TILE_SIZE, 3 * ORIGINAL_HEIGHT / 4 - TILE_SIZE / 2, "Non lo so", 4, false),
+            new Door(ORIGINAL_WIDTH / 2 - TILE_SIZE / 2, ORIGINAL_HEIGHT - TILE_SIZE, "Negozio di petardi", 5, false)
+        );
+        rooms.add(new Room(Color.BLUE, room1Doors)); // Add Room 1 with doors
+    
+        // Create specific Puzzle Rooms with "Back to Room 1" doors
+        rooms.add(new PuzzleRoom1(List.of(new Door(0, 0, "Back to Casa di ghini", 0, false)),this)); // Puzzle Room 1
+        rooms.add(new PuzzleRoom2(List.of(new Door(0, 0, "Back to Casa di ghini", 0, false)))); // Puzzle Room 2
+        rooms.add(new PuzzleRoom3(List.of(new Door(0, 0, "Back to Casa di ghini", 0, false)))); // Puzzle Room 3
+        rooms.add(new PuzzleRoom4(List.of(new Door(0, 0, "Back to Casa di ghini", 0, false)))); // Puzzle Room 4
+        rooms.add(new PuzzleRoom5(List.of(new Door(0, 0, "Back to Casa di ghini", 0, false)))); // Puzzle Room 5
     }
 
     public void startGameThread() {
@@ -129,25 +121,21 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
-    String lastInteraction = "";
-
     public void update(double deltaTime) {
         int currentSpeedX = 0;
         int currentSpeedY = 0;
+
+        // Gestione del movimento del giocatore
         if (keyH.downPressed) currentSpeedY = speed;
         if (keyH.upPressed) currentSpeedY = -speed;
         if (keyH.leftPressed) currentSpeedX = -speed;
         if (keyH.rightPressed) currentSpeedX = speed;
 
-        if ((keyH.upPressed || keyH.downPressed) && (keyH.leftPressed || keyH.rightPressed)) {
-            double length = Math.sqrt(currentSpeedX * currentSpeedX + currentSpeedY * currentSpeedY);
-            currentSpeedX = (int) (currentSpeedX / length * speed);
-            currentSpeedY = (int) (currentSpeedY / length * speed);
-        }
+        // Aggiornamento della posizione del giocatore basata sulla velocità e delta time
+        playerX += currentSpeedX * deltaTime * speed;
+        playerY += currentSpeedY * deltaTime * speed;
 
-        playerX += currentSpeedX * deltaTime * 100;
-        playerY += currentSpeedY * deltaTime * 100;
-
+        // Evita che il giocatore esca dai bordi della finestra
         int panelWidth = getWidth();
         int panelHeight = getHeight();
 
@@ -156,15 +144,28 @@ public class GamePanel extends JPanel implements Runnable {
         if (playerY < 0) playerY = 0;
         if (playerY > panelHeight - TILE_SIZE) playerY = panelHeight - TILE_SIZE;
 
-        // Aggiorna la posizione percentuale del giocatore
-        playerXPercentage = (double) playerX / panelWidth;
-        playerYPercentage = (double) playerY / panelHeight;
+        // Ottieni la stanza corrente
+        Room currentRoom = rooms.get(currentRoomIndex);
 
-        // Check for interactions with doors
-        for (Door door : doors) {
+        // Se la stanza corrente è un PuzzleRoom, aggiorna la logica del puzzle
+        if (currentRoom instanceof PuzzleRoom) {
+            ((PuzzleRoom) currentRoom).updatePuzzleLogic(keyH);  // Verifica se il puzzle è stato risolto
+        }
+
+        // Controlla le interazioni con le porte nella stanza corrente
+        for (Door door : currentRoom.getDoors()) {
             if (door.isPlayerNearby(playerX, playerY) && keyH.interactPressed) {
-                lastInteraction = "Interacted with: " + door.getName() + door.interact();
-                door.interact();
+                // Se il puzzle della porta è risolto, cambia la stanza
+                if (!door.isSolved()) {
+                    lastInteraction = "Interacted with: " + door.getName();
+                    currentRoomIndex = door.getTargetRoomIndex();  // Cambia stanza
+                    playerX = GamePanel.ORIGINAL_WIDTH / 2 - TILE_SIZE / 2;  // Ripristina la posizione del giocatore
+                    playerY = GamePanel.ORIGINAL_HEIGHT / 2 - TILE_SIZE / 2; // Ripristina la posizione del giocatore
+                } else {
+                    // Se il puzzle della porta non è risolto, mostra il messaggio
+                    lastInteraction = "Puzzle not solved yet!";
+                }
+                break;
             }
         }
     }
@@ -173,33 +174,32 @@ public class GamePanel extends JPanel implements Runnable {
     protected void paintComponent(final Graphics g) {
         super.paintComponent(g);
         final Graphics2D g2 = (Graphics2D) g;
-    
-        // Draw player
+
+        // Disegna la stanza corrente
+        Room currentRoom = rooms.get(currentRoomIndex);
+        currentRoom.draw(g2);
+
+        // Disegna il giocatore
         g2.setColor(Color.WHITE);
         g2.fillRect(playerX, playerY, TILE_SIZE, TILE_SIZE);
-    
-        // Draw doors
-        for (Door door : doors) {
-            door.draw(g2);
-        }
-    
-        // Set font and prepare text rendering
+
+        // Disegna FPS e interazioni
         g2.setColor(Color.WHITE);
         g2.setFont(g2.getFont().deriveFont(20f));
         FontMetrics metrics = g2.getFontMetrics();
-    
-        // Draw FPS counter
         String fpsText = "FPS: " + fps;
         g2.drawString(fpsText, getWidth() - metrics.stringWidth(fpsText) - 20, 30);
-        
-        // Center the interaction text
+
         if (!lastInteraction.isEmpty()) {
             int textWidth = metrics.stringWidth(lastInteraction);
-            
             int textX = (getWidth() - textWidth) / 2;
-            g2.drawString(lastInteraction, textX, 30);
+            g2.drawString(lastInteraction, textX, 60);
         }
-        
+
+        // Aggiungi la stampa dell'indice della stanza
+        String roomIndexText = "Current Room Index: " + currentRoomIndex;
+        g2.drawString(roomIndexText, 20, 30);  // Disegna l'indice in alto a sinistra
+
         g2.dispose();
     }
 }

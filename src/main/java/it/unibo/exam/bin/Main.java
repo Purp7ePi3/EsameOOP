@@ -35,7 +35,6 @@ public final class Main {
         window.pack(); // Sizes the window to fit the preferred size of its components
         window.setLocationRelativeTo(null); // Center the window on the screen
         window.setVisible(true);
-
         // Start the game loop
         gamePanel.startGameThread();
     }

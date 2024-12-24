@@ -21,6 +21,7 @@ public class PuzzleRoom1 extends Room implements PuzzleRoom {
     private final int doorY = 20;
 
     private GamePanel gamePanel;  // Reference to GamePanel to get player position
+    private boolean firstVisit = true;  // Flag to check if this is the first time entering the room
 
     public PuzzleRoom1(List<Door> doors, GamePanel gamePanel) {
         super(Color.GRAY, doors); // Set the room's background color
@@ -29,20 +30,23 @@ public class PuzzleRoom1 extends Room implements PuzzleRoom {
 
     @Override
     public void updatePuzzleLogic(KeyHandler keyHandler) {
-        int playerX = 400;  // Get player position from GamePanel
-        int playerY = 300;
+        // Get player position from GamePanel (dynamic instead of hardcoded values)
+        int playerX = gamePanel.getPlayerX();
+        int playerY = gamePanel.getPlayerY();
 
-        // Check interaction with the green button to solve the puzzle
-        if (!puzzleSolved && playerX >= buttonX - buttonWidth / 2 &&
-            playerX <= buttonX + buttonWidth / 2 &&
-            playerY >= buttonY - buttonHeight / 2 &&
-            playerY <= buttonY + buttonHeight / 2 &&
-            keyHandler.interactPressed) {
-            
-            // Puzzle is solved when the player interacts with the green button
+        // Se è la prima volta che entri nella stanza, aggiorna la mappa
+        if (firstVisit) {
+            updateMap();  // Call a method to update the map or do other specific logic
+            firstVisit = false;  // Set the flag to false to prevent further updates
+        }
+
+        // Check if the player is at coordinates (0, 0) and interacts with the puzzle
+        if (playerX == 0 && playerY == 0 && keyHandler.interactPressed) {
+            // Puzzle is solved when the player is at (0, 0) and presses the interact button
             puzzleSolved = true;
             System.out.println("Puzzle Solved in PuzzleRoom1!");
         }
+        //System.out.println("x:" + playerX + " y:" + playerY);  // Debugging position
 
         // Check interaction with the back door to return to the previous room
         if (playerX >= doorX - doorWidth / 2 &&
@@ -85,4 +89,10 @@ public class PuzzleRoom1 extends Room implements PuzzleRoom {
         g2.drawString("Back", doorX + 5, doorY + 25);
     }
 
+    // Metodo per aggiornare la mappa (o eseguire altre logiche specifiche)
+    private void updateMap() {
+        System.out.println("Map is updated when entering PuzzleRoom1!");
+        // Inserisci qui la logica per aggiornare la mappa (ad esempio, disegnare nuovi oggetti, abilitare nuovi eventi, etc.)
+        // Esempio: gamePanel.updateMapState();  // chiamata a un metodo nella classe GamePanel
+    }
 }

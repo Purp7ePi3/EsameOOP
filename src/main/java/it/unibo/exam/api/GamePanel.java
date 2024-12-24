@@ -8,10 +8,10 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 import it.unibo.exam.bin.PuzzleRoom1;
-import it.unibo.exam.bin.PuzzleRoom2;
+/*import it.unibo.exam.bin.PuzzleRoom2;
 import it.unibo.exam.bin.PuzzleRoom3;
 import it.unibo.exam.bin.PuzzleRoom4;
-import it.unibo.exam.bin.PuzzleRoom5;
+import it.unibo.exam.bin.PuzzleRoom5;*/
 import it.unibo.exam.inteface.PuzzleRoom;
 
 import java.util.ArrayList;
@@ -69,11 +69,11 @@ public class GamePanel extends JPanel implements Runnable {
         rooms.add(new Room(Color.BLUE, room1Doors)); // Add Room 1 with doors
     
         // Create specific Puzzle Rooms with "Back to Room 1" doors
-        rooms.add(new PuzzleRoom1(List.of(new Door(0, 0, "Back to Casa di ghini", 0, false)),this)); // Puzzle Room 1
-        rooms.add(new PuzzleRoom2(List.of(new Door(0, 0, "Back to Casa di ghini", 0, false)))); // Puzzle Room 2
+        rooms.add(new PuzzleRoom1(List.of(new Door(ORIGINAL_WIDTH - TILE_SIZE, ORIGINAL_HEIGHT - TILE_SIZE, "Back to Casa di ghini", 0, false)),this)); // Puzzle Room 1
+        /*rooms.add(new PuzzleRoom2(List.of(new Door(0, 0, "Back to Casa di ghini", 0, false)))); // Puzzle Room 2
         rooms.add(new PuzzleRoom3(List.of(new Door(0, 0, "Back to Casa di ghini", 0, false)))); // Puzzle Room 3
         rooms.add(new PuzzleRoom4(List.of(new Door(0, 0, "Back to Casa di ghini", 0, false)))); // Puzzle Room 4
-        rooms.add(new PuzzleRoom5(List.of(new Door(0, 0, "Back to Casa di ghini", 0, false)))); // Puzzle Room 5
+        rooms.add(new PuzzleRoom5(List.of(new Door(0, 0, "Back to Casa di ghini", 0, false)))); // Puzzle Room 5*/
     }
 
     public void startGameThread() {
@@ -201,5 +201,13 @@ public class GamePanel extends JPanel implements Runnable {
         g2.drawString(roomIndexText, 20, 30);  // Disegna l'indice in alto a sinistra
 
         g2.dispose();
+    }
+
+    public int getPlayerX(){
+        return playerX;
+    }
+
+    public int getPlayerY(){
+        return playerY;
     }
 }

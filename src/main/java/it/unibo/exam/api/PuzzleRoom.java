@@ -1,6 +1,9 @@
-package it.unibo.exam.api;
+package it.unibo.exam.api;  // Changed from inteface to api
+
+import java.awt.Graphics2D;
 
 public interface PuzzleRoom {
-    // Method signature to accept KeyHandler and player position
-    void updatePuzzleLogic(KeyHandler keyH, int playerX, int playerY);
+    void updatePuzzleLogic(KeyHandler keyHandler);
+    boolean isPuzzleSolved();
+    void draw(Graphics2D g2);
 }

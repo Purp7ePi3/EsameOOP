@@ -1,12 +1,12 @@
 package it.unibo.exam.api;
 
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.List;
 
 public class Room {
-    private Color backgroundColor; // Colore di sfondo della stanza
-    private List<Door> doors;      // Lista di porte nella stanza
+    private Color backgroundColor;
+    private List<Door> doors;
 
     public Room(Color backgroundColor, List<Door> doors) {
         this.backgroundColor = backgroundColor;
@@ -17,19 +17,19 @@ public class Room {
         return doors;
     }
 
-    public void draw(Graphics g) {
-        // Disegna lo sfondo della stanza
-        g.setColor(backgroundColor);
-        g.fillRect(0, 0, GamePanel.ORIGINAL_WIDTH, GamePanel.ORIGINAL_HEIGHT);
+    public void draw(Graphics2D g2) {
+        g2.setColor(backgroundColor);
+        g2.fillRect(0, 0, GamePanel.ORIGINAL_WIDTH, GamePanel.ORIGINAL_HEIGHT);
 
-        // Disegna tutte le porte
         for (Door door : doors) {
-            door.draw(g);
+            door.draw(g2);
         }
     }
 
-    // Aggiungi il metodo updatePuzzleLogic
     public void updatePuzzleLogic(KeyHandler keyH) {
-        // Logica base per la stanza. Potrebbe essere vuota o avere logica generica.
+    }
+
+    public void setColor(Color color) {
+        this.backgroundColor = color;
     }
 }

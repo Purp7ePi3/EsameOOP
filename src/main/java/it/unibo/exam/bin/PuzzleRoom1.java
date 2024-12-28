@@ -26,7 +26,8 @@ public class PuzzleRoom1 extends Room implements PuzzleRoom {
             if (playerX == 0 && playerY == 0 && keyHandler.interactPressed) {
                 puzzleSolved = true;
                 firstDoor.setSolved(true);
-                System.out.println("Puzzle Solved!");
+                // Aggiorna anche la porta nella stanza principale
+                gamePanel.updateDoorState(1, true); // 1 è l'indice della stanza del puzzle
             }
         }
     }
@@ -37,7 +38,7 @@ public class PuzzleRoom1 extends Room implements PuzzleRoom {
         
         if (puzzleSolved) {
             g2.setColor(Color.GREEN);
-            setColor(Color.PINK);  // Assuming you have a method to set the color
+            //setColor(Color.PINK);  // Assuming you have a method to set the color
             g2.drawString("Puzzle Solved!", GamePanel.ORIGINAL_WIDTH / 2 - 50, GamePanel.ORIGINAL_HEIGHT / 2);
         }
     }

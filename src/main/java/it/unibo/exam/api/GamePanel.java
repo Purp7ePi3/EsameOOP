@@ -134,14 +134,19 @@ public class GamePanel extends JPanel implements Runnable {
         for (Door door : currentRoom.getDoors()) {
             if (door.isPlayerNearby(playerX, playerY) && keyH.interactPressed) {
                 lastInteraction = "Interacted with: " + door.getName();
-                
-                if (!door.isSolved() || currentRoomIndex != 0) {
+                /* TOGLIERE IL COMMENTO A QUESTA PARTE SE UNA VOLTA RISOLTO NON SI POSSA PIù ANDARE NELLA STANZA */
+                /*if (!door.isSolved() || door.getTargetRoomIndex() == 0) {
                     currentRoomIndex = door.getTargetRoomIndex();
                     playerX = ORIGINAL_WIDTH / 2 - TILE_SIZE / 2;
                     playerY = ORIGINAL_HEIGHT / 2 - TILE_SIZE / 2;
                 } else {
-                    lastInteraction = "Solve the puzzle first!";
-                }
+                    lastInteraction = "The puzzle is already solved!";
+                }*/
+
+                
+                currentRoomIndex = door.getTargetRoomIndex();
+                playerX = ORIGINAL_WIDTH / 2 - TILE_SIZE / 2;
+                playerY = ORIGINAL_HEIGHT / 2 - TILE_SIZE / 2;
                 break;
             }
         }
@@ -188,4 +193,14 @@ public class GamePanel extends JPanel implements Runnable {
     public int getPlayerY() {
         return playerY;
     }
+
+    public void updateDoorState(int targetRoomIndex, boolean solved) {
+        Room mainRoom = rooms.get(0); // La stanza principale
+        for (Door door : mainRoom.getDoors()) {
+            if (door.getTargetRoomIndex() == targetRoomIndex) {
+                door.setSolved(solved);
+            }
+        }
+    }
+    
 }

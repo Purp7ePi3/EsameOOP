@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+@SuppressWarnings("unused")
 public class Door {
     private int x;
     private int y;

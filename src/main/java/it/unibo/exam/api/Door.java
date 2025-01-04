@@ -38,11 +38,10 @@ public class Door {
     public boolean isPlayerNearby(int playerX, int playerY) {
         int detectionRange = GamePanel.TILE_SIZE;
         Rectangle detectionArea = new Rectangle(
-            x - detectionRange/2,
-            y - detectionRange/2,
-            width + detectionRange,
-            height + detectionRange
-        );
+                x - detectionRange / 2,
+                y - detectionRange / 2,
+                width + detectionRange,
+                height + detectionRange);
         Rectangle playerHitbox = new Rectangle(playerX, playerY, GamePanel.TILE_SIZE, GamePanel.TILE_SIZE);
         return detectionArea.intersects(playerHitbox);
     }

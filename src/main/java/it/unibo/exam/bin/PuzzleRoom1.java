@@ -1,6 +1,9 @@
 package it.unibo.exam.bin;
 
-import it.unibo.exam.api.*;
+import it.unibo.exam.api.Room;
+import it.unibo.exam.api.GamePanel;
+import it.unibo.exam.api.Door;
+import it.unibo.exam.api.KeyHandler;
 import it.unibo.exam.inteface.PuzzleRoom;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -10,19 +13,19 @@ public class PuzzleRoom1 extends Room implements PuzzleRoom {
     private boolean puzzleSolved = false;
     private final GamePanel gamePanel;
 
-    public PuzzleRoom1(List<Door> doors, GamePanel gamePanel) {
+    public PuzzleRoom1(final List<Door> doors, final GamePanel gamePanel) {
         super(Color.gray, doors); // Default room color
         this.gamePanel = gamePanel;
     }
 
     @Override
-    public void updatePuzzleLogic(KeyHandler keyHandler) {
+    public void updatePuzzleLogic(final KeyHandler keyHandler) {
         int playerX = gamePanel.getPlayerX();
         int playerY = gamePanel.getPlayerY();
-        
+
         if (!getDoors().isEmpty()) {
             Door firstDoor = getDoors().get(0);
-            
+
             if (playerX == 0 && playerY == 0 && keyHandler.interactPressed) {
                 puzzleSolved = true;
                 firstDoor.setSolved(true);
@@ -31,15 +34,15 @@ public class PuzzleRoom1 extends Room implements PuzzleRoom {
             }
         }
     }
-    
+
     @Override
-    public void draw(Graphics2D g2) {
+    public void draw(final Graphics2D g2) {
         super.draw(g2);
-        
+
         if (puzzleSolved) {
             g2.setColor(Color.GREEN);
-            //setColor(Color.PINK);  // Assuming you have a method to set the color
-            g2.drawString("Puzzle Solved!", GamePanel.ORIGINAL_WIDTH / 2 - 50, GamePanel.ORIGINAL_HEIGHT / 2);
+            // setColor(Color.PINK); // Assuming you have a method to set the color
+            g2.drawString("Puzzle Solved!", GamePanel.ORIGINAL_WIDTH / 2, GamePanel.ORIGINAL_HEIGHT / 2);
         }
     }
 

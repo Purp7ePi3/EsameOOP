@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd xmlns="https://pmd-code.org/schema/cpd-report"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         pmdVersion="7.8.0"
+         timestamp="2025-01-04T19:10:53.7092916+01:00"
+         version="1.0.0"
+         xsi:schemaLocation="https://pmd-code.org/schema/cpd-report https://pmd.github.io/schema/cpd-report_1_0_0.xsd">
+   <file path="C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\api\Door.java"
+         totalNumberOfTokens="257"/>
+   <file path="C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\api\GamePanel.java"
+         totalNumberOfTokens="1007"/>
+   <file path="C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\api\KeyHandler.java"
+         totalNumberOfTokens="178"/>
+   <file path="C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\api\Room.java"
+         totalNumberOfTokens="119"/>
+   <file path="C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\bin\Main.java"
+         totalNumberOfTokens="103"/>
+   <file path="C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\bin\PuzzleRoom1.java"
+         totalNumberOfTokens="191"/>
+   <file path="C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\inteface\PuzzleRoom.java"
+         totalNumberOfTokens="25"/>
+</pmd-cpd>

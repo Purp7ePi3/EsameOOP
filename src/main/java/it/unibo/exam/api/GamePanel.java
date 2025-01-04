@@ -50,17 +50,15 @@ public class GamePanel extends JPanel implements Runnable {
 
     private void createRooms() {
         List<Door> room1Doors = List.of(
-            new Door(0, ORIGINAL_HEIGHT / 4 - TILE_SIZE / 2, "Cucina", 1, false),
-            new Door(0, 3 * ORIGINAL_HEIGHT / 4 - TILE_SIZE / 2, "Gabinetto", 2, false),
-            new Door(ORIGINAL_WIDTH - TILE_SIZE, ORIGINAL_HEIGHT / 4 - TILE_SIZE / 2, "Stanza 3", 3, false),
-            new Door(ORIGINAL_WIDTH - TILE_SIZE, 3 * ORIGINAL_HEIGHT / 4 - TILE_SIZE / 2, "Stanza 4", 4, false),
-            new Door(ORIGINAL_WIDTH / 2 - TILE_SIZE / 2, ORIGINAL_HEIGHT - TILE_SIZE, "Stanza 5", 5, false)
-        );
+                new Door(0, ORIGINAL_HEIGHT / 4 - TILE_SIZE / 2, "Cucina", 1, false),
+                new Door(0, 3 * ORIGINAL_HEIGHT / 4 - TILE_SIZE / 2, "Gabinetto", 2, false),
+                new Door(ORIGINAL_WIDTH - TILE_SIZE, ORIGINAL_HEIGHT / 4 - TILE_SIZE / 2, "Stanza 3", 3, false),
+                new Door(ORIGINAL_WIDTH - TILE_SIZE, 3 * ORIGINAL_HEIGHT / 4 - TILE_SIZE / 2, "Stanza 4", 4, false),
+                new Door(ORIGINAL_WIDTH / 2 - TILE_SIZE / 2, ORIGINAL_HEIGHT - TILE_SIZE, "Stanza 5", 5, false));
         rooms.add(new Room(Color.BLUE, room1Doors));
-    
+
         rooms.add(new PuzzleRoom1(List.of(
-            new Door(ORIGINAL_WIDTH - TILE_SIZE, ORIGINAL_HEIGHT - TILE_SIZE, "Back to Main", 0, false)
-        ), this));
+                new Door(ORIGINAL_WIDTH - TILE_SIZE, ORIGINAL_HEIGHT - TILE_SIZE, "Back to Main", 0, false)), this));
     }
 
     public void startGameThread() {
@@ -112,18 +110,26 @@ public class GamePanel extends JPanel implements Runnable {
         int currentSpeedX = 0;
         int currentSpeedY = 0;
 
-        if (keyH.downPressed) currentSpeedY = speed;
-        if (keyH.upPressed) currentSpeedY = -speed;
-        if (keyH.leftPressed) currentSpeedX = -speed;
-        if (keyH.rightPressed) currentSpeedX = speed;
+        if (keyH.downPressed)
+            currentSpeedY = speed;
+        if (keyH.upPressed)
+            currentSpeedY = -speed;
+        if (keyH.leftPressed)
+            currentSpeedX = -speed;
+        if (keyH.rightPressed)
+            currentSpeedX = speed;
 
         playerX += currentSpeedX * deltaTime * speed;
         playerY += currentSpeedY * deltaTime * speed;
 
-        if (playerX < 0) playerX = 0;
-        if (playerX > ORIGINAL_WIDTH - TILE_SIZE) playerX = ORIGINAL_WIDTH - TILE_SIZE;
-        if (playerY < 0) playerY = 0;
-        if (playerY > ORIGINAL_HEIGHT - TILE_SIZE) playerY = ORIGINAL_HEIGHT - TILE_SIZE;
+        if (playerX < 0)
+            playerX = 0;
+        if (playerX > ORIGINAL_WIDTH - TILE_SIZE)
+            playerX = ORIGINAL_WIDTH - TILE_SIZE;
+        if (playerY < 0)
+            playerY = 0;
+        if (playerY > ORIGINAL_HEIGHT - TILE_SIZE)
+            playerY = ORIGINAL_HEIGHT - TILE_SIZE;
 
         Room currentRoom = rooms.get(currentRoomIndex);
 
@@ -134,16 +140,20 @@ public class GamePanel extends JPanel implements Runnable {
         for (Door door : currentRoom.getDoors()) {
             if (door.isPlayerNearby(playerX, playerY) && keyH.interactPressed) {
                 lastInteraction = "Interacted with: " + door.getName();
-                /* TOGLIERE IL COMMENTO A QUESTA PARTE SE UNA VOLTA RISOLTO NON SI POSSA PIù ANDARE NELLA STANZA */
-                /*if (!door.isSolved() || door.getTargetRoomIndex() == 0) {
-                    currentRoomIndex = door.getTargetRoomIndex();
-                    playerX = ORIGINAL_WIDTH / 2 - TILE_SIZE / 2;
-                    playerY = ORIGINAL_HEIGHT / 2 - TILE_SIZE / 2;
-                } else {
-                    lastInteraction = "The puzzle is already solved!";
-                }*/
+                /*
+                 * TOGLIERE IL COMMENTO A QUESTA PARTE SE UNA VOLTA RISOLTO NON SI POSSA PIù
+                 * ANDARE NELLA STANZA
+                 */
+                /*
+                 * if (!door.isSolved() || door.getTargetRoomIndex() == 0) {
+                 * currentRoomIndex = door.getTargetRoomIndex();
+                 * playerX = ORIGINAL_WIDTH / 2 - TILE_SIZE / 2;
+                 * playerY = ORIGINAL_HEIGHT / 2 - TILE_SIZE / 2;
+                 * } else {
+                 * lastInteraction = "The puzzle is already solved!";
+                 * }
+                 */
 
-                
                 currentRoomIndex = door.getTargetRoomIndex();
                 playerX = ORIGINAL_WIDTH / 2 - TILE_SIZE / 2;
                 playerY = ORIGINAL_HEIGHT / 2 - TILE_SIZE / 2;
@@ -170,7 +180,7 @@ public class GamePanel extends JPanel implements Runnable {
         g2.setColor(Color.WHITE);
         g2.setFont(g2.getFont().deriveFont(20f));
         FontMetrics metrics = g2.getFontMetrics();
-        
+
         String fpsText = "FPS: " + fps;
         g2.drawString(fpsText, getWidth() - metrics.stringWidth(fpsText) - 20, 30);
 
@@ -202,5 +212,5 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
     }
-    
+
 }

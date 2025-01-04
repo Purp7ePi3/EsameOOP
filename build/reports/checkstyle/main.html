@@ -1,0 +1,549 @@
+<html>
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Checkstyle Violations</title>
+        <style type="text/css">
+                    body {
+                        background-color: #fff;
+                        color: #02303A;
+                    }
+
+                    a {
+                        color: #1DA2BD;
+                    }
+                    a.link {
+                        color: #02303A;
+                    }
+
+                    p {
+                        font-size: 1rem;
+                    }
+
+                    h1 a[name] {
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    tr:nth-child(even) {
+                        background: white;
+                    }
+
+                    th {
+                        font-weight:bold;
+                    }
+                    tr {
+                        background: #efefef;
+                    }
+                    table th, td, tr {
+                        font-size:100%;
+                        border: none;
+                        text-align: left;
+                        vertical-align: top;
+                    }
+                </style>
+    </head>
+    <body>
+        <p>
+            <a name="top">
+                <h1>Checkstyle Results</h1>
+            </a>
+        </p>
+        <hr align="left" width="95%" size="1">
+        <h2>Summary</h2>
+        <table class="summary" width="95%">
+            <tr>
+                <th>Total files checked</th><th>Total violations</th><th>Files with violations</th>
+            </tr>
+            <tr>
+                <td>7</td><td>119</td><td>7</td>
+            </tr>
+        </table>
+        <hr align="left" width="95%" size="1">
+        <div class="violations">
+            <h2>Violations</h2>
+            <p>
+                <table class="filelist" width="95%">
+                    <tr>
+                        <th>File</th><th>Total violations</th>
+                    </tr>
+                    <tr>
+                        <td><a href="#N65713">C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\api\GamePanel.java</a></td><td>45</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#N65542">C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\api\Door.java</a></td><td>24</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#N66031">C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\api\KeyHandler.java</a></td><td>21</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#N66181">C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\api\Room.java</a></td><td>15</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#N66313">C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\bin\PuzzleRoom1.java</a></td><td>7</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#N66365">C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\inteface\PuzzleRoom.java</a></td><td>4</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#N66289">C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\bin\Main.java</a></td><td>3</td>
+                    </tr>
+                </table>
+                <p></p>
+                
+                <div class="file-violation">
+                    <h3>
+                        <a class="link" name="N65542">C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\api\Door.java</a>
+                    </h3>
+                    <table class="violationlist" width="95%">
+                        <tr>
+                            <th>Severity</th><th>Description</th><th>Line Number</th>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>File does not end with a newline.</td><td>1</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>7</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>18</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter x should be final.</td><td>18</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter y should be final.</td><td>18</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter name should be final.</td><td>18</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter targetRoomIndex should be final.</td><td>18</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter isSolved should be final.</td><td>18</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'Door' looks like designed for extension (can be subclassed), but the method 'getTargetRoomIndex' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'Door' final or making the method 'getTargetRoomIndex' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>29</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>29</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'Door' looks like designed for extension (can be subclassed), but the method 'draw' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'Door' final or making the method 'draw' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>33</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>33</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter g should be final.</td><td>33</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'Door' looks like designed for extension (can be subclassed), but the method 'isPlayerNearby' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'Door' final or making the method 'isPlayerNearby' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>38</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>38</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter playerX should be final.</td><td>38</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter playerY should be final.</td><td>38</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'Door' looks like designed for extension (can be subclassed), but the method 'getName' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'Door' final or making the method 'getName' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>49</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>49</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'Door' looks like designed for extension (can be subclassed), but the method 'isSolved' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'Door' final or making the method 'isSolved' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>53</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>53</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'Door' looks like designed for extension (can be subclassed), but the method 'setSolved' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'Door' final or making the method 'setSolved' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>57</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>57</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter solved should be final.</td><td>57</td>
+                        </tr>
+                    </table>
+                    <p></p>
+                    <a href="#top">Back to top</a>
+                    <p></p>
+                </div>
+                <div class="file-violation">
+                    <h3>
+                        <a class="link" name="N65713">C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\api\GamePanel.java</a>
+                    </h3>
+                    <table class="violationlist" width="95%">
+                        <tr>
+                            <th>Severity</th><th>Description</th><th>Line Number</th>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>File does not end with a newline.</td><td>1</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>15</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>16</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>17</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>20</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Variable 'speed' must be private and have accessor methods.</td><td>24</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>25</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Variable 'playerX' must be private and have accessor methods.</td><td>25</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>26</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Variable 'playerY' must be private and have accessor methods.</td><td>26</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>34</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter keyHandler should be final.</td><td>34</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'5' is a magic number.</td><td>57</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'GamePanel' looks like designed for extension (can be subclassed), but the method 'startGameThread' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'GamePanel' final or making the method 'startGameThread' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>64</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>64</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'GamePanel' looks like designed for extension (can be subclassed), but the method 'run' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'GamePanel' final or making the method 'run' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>71</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Name 'FPS' must match pattern '^([a-z][a-zA-Z0-9]*|_)$'.</td><td>73</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'1_000_000_000.0' is a magic number.</td><td>84</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'1_000_000' is a magic number.</td><td>99</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'GamePanel' looks like designed for extension (can be subclassed), but the method 'update' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'GamePanel' final or making the method 'update' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>109</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>109</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter deltaTime should be final.</td><td>109</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>113</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>115</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>117</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>119</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>125</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>127</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>129</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>131</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'GamePanel' looks like designed for extension (can be subclassed), but the method 'paintComponent' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'GamePanel' final or making the method 'paintComponent' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>165</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'20f' is a magic number.</td><td>181</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'20' is a magic number.</td><td>185</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'30' is a magic number.</td><td>185</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'60' is a magic number.</td><td>190</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'20' is a magic number.</td><td>194</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'30' is a magic number.</td><td>194</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'GamePanel' looks like designed for extension (can be subclassed), but the method 'getPlayerX' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'GamePanel' final or making the method 'getPlayerX' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>199</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>199</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'GamePanel' looks like designed for extension (can be subclassed), but the method 'getPlayerY' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'GamePanel' final or making the method 'getPlayerY' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>203</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>203</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'GamePanel' looks like designed for extension (can be subclassed), but the method 'updateDoorState' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'GamePanel' final or making the method 'updateDoorState' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>207</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>207</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter targetRoomIndex should be final.</td><td>207</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter solved should be final.</td><td>207</td>
+                        </tr>
+                    </table>
+                    <p></p>
+                    <a href="#top">Back to top</a>
+                    <p></p>
+                </div>
+                <div class="file-violation">
+                    <h3>
+                        <a class="link" name="N66031">C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\api\KeyHandler.java</a>
+                    </h3>
+                    <table class="violationlist" width="95%">
+                        <tr>
+                            <th>Severity</th><th>Description</th><th>Line Number</th>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>File does not end with a newline.</td><td>1</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>6</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>7</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Variable 'upPressed' must be private and have accessor methods.</td><td>7</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Variable 'downPressed' must be private and have accessor methods.</td><td>7</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Variable 'leftPressed' must be private and have accessor methods.</td><td>7</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Variable 'rightPressed' must be private and have accessor methods.</td><td>7</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Variable 'interactPressed' must be private and have accessor methods.</td><td>7</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter e should be final.</td><td>10</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter e should be final.</td><td>15</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>17</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>19</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>21</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>23</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>25</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter e should be final.</td><td>30</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>32</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>34</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>36</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>38</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>'if' construct must use '{}'s.</td><td>40</td>
+                        </tr>
+                    </table>
+                    <p></p>
+                    <a href="#top">Back to top</a>
+                    <p></p>
+                </div>
+                <div class="file-violation">
+                    <h3>
+                        <a class="link" name="N66181">C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\api\Room.java</a>
+                    </h3>
+                    <table class="violationlist" width="95%">
+                        <tr>
+                            <th>Severity</th><th>Description</th><th>Line Number</th>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>File does not end with a newline.</td><td>1</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>7</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>11</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter backgroundColor should be final.</td><td>11</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter doors should be final.</td><td>11</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'Room' looks like designed for extension (can be subclassed), but the method 'getDoors' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'Room' final or making the method 'getDoors' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>16</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>16</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'Room' looks like designed for extension (can be subclassed), but the method 'draw' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'Room' final or making the method 'draw' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>20</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>20</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter g2 should be final.</td><td>20</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>29</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter keyH should be final.</td><td>29</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'Room' looks like designed for extension (can be subclassed), but the method 'setColor' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'Room' final or making the method 'setColor' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>32</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>32</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter color should be final.</td><td>32</td>
+                        </tr>
+                    </table>
+                    <p></p>
+                    <a href="#top">Back to top</a>
+                    <p></p>
+                </div>
+                <div class="file-violation">
+                    <h3>
+                        <a class="link" name="N66289">C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\bin\Main.java</a>
+                    </h3>
+                    <table class="violationlist" width="95%">
+                        <tr>
+                            <th>Severity</th><th>Description</th><th>Line Number</th>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>File does not end with a newline.</td><td>1</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>8</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>13</td>
+                        </tr>
+                    </table>
+                    <p></p>
+                    <a href="#top">Back to top</a>
+                    <p></p>
+                </div>
+                <div class="file-violation">
+                    <h3>
+                        <a class="link" name="N66313">C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\bin\PuzzleRoom1.java</a>
+                    </h3>
+                    <table class="violationlist" width="95%">
+                        <tr>
+                            <th>Severity</th><th>Description</th><th>Line Number</th>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>File does not end with a newline.</td><td>1</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>12</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>16</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'PuzzleRoom1' looks like designed for extension (can be subclassed), but the method 'updatePuzzleLogic' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'PuzzleRoom1' final or making the method 'updatePuzzleLogic' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>21</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'PuzzleRoom1' looks like designed for extension (can be subclassed), but the method 'draw' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'PuzzleRoom1' final or making the method 'draw' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>38</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Parameter g2 should be final.</td><td>39</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Class 'PuzzleRoom1' looks like designed for extension (can be subclassed), but the method 'isPuzzleSolved' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'PuzzleRoom1' final or making the method 'isPuzzleSolved' static/final/abstract/empty, or adding allowed annotation for the method.</td><td>49</td>
+                        </tr>
+                    </table>
+                    <p></p>
+                    <a href="#top">Back to top</a>
+                    <p></p>
+                </div>
+                <div class="file-violation">
+                    <h3>
+                        <a class="link" name="N66365">C:\Users\sbrun\Desktop\GitHub\JavaGame\src\main\java\it\unibo\exam\inteface\PuzzleRoom.java</a>
+                    </h3>
+                    <table class="violationlist" width="95%">
+                        <tr>
+                            <th>Severity</th><th>Description</th><th>Line Number</th>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>5</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>7</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>9</td>
+                        </tr>
+                        <tr>
+                            <td>error</td><td>Missing a Javadoc comment.</td><td>11</td>
+                        </tr>
+                    </table>
+                    <p></p>
+                    <a href="#top">Back to top</a>
+                    <p></p>
+                </div>
+                <p></p>
+            </p>
+        </div>
+        <hr align="left" width="95%" size="1">
+        <p>
+            Generated by <a href="https://gradle.org">Gradle 8.10.2</a> with <a href="https://checkstyle.sourceforge.io/">Checkstyle 10.20.2</a>.
+        </p>
+    </body>
+</html>

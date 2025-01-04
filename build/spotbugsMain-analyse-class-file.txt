@@ -1,0 +1,7 @@
+C:\Users\sbrun\Desktop\GitHub\JavaGame\build\classes\java\main\it\unibo\exam\api\Door.class
+C:\Users\sbrun\Desktop\GitHub\JavaGame\build\classes\java\main\it\unibo\exam\api\GamePanel.class
+C:\Users\sbrun\Desktop\GitHub\JavaGame\build\classes\java\main\it\unibo\exam\api\KeyHandler.class
+C:\Users\sbrun\Desktop\GitHub\JavaGame\build\classes\java\main\it\unibo\exam\api\Room.class
+C:\Users\sbrun\Desktop\GitHub\JavaGame\build\classes\java\main\it\unibo\exam\bin\Main.class
+C:\Users\sbrun\Desktop\GitHub\JavaGame\build\classes\java\main\it\unibo\exam\bin\PuzzleRoom1.class
+C:\Users\sbrun\Desktop\GitHub\JavaGame\build\classes\java\main\it\unibo\exam\inteface\PuzzleRoom.class

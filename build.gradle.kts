@@ -1,7 +1,7 @@
 plugins {
     java
     application
-    //id("org.danilopianini.gradle-java-qa") version "1.77.0"
+    id("org.danilopianini.gradle-java-qa") version "1.77.0"
 }
 
 group = "it.unibo.exam" // Nome del gruppo del progetto

@@ -31,7 +31,7 @@ public class PuzzleRoom1 extends Room implements PuzzleRoom {
             }
         }
     }
-
+    
     @Override
     public void draw(Graphics2D g2) {
         super.draw(g2);
